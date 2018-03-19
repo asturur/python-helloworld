@@ -1,0 +1,28 @@
+language: python
+
+services:
+  - docker
+
+python:
+  - "2.7"
+
+addons:
+  apt:
+    packages:
+    - pylint
+
+stages:
+  - Linting
+  - test
+
+install:
+  - python setup.py install
+
+jobs:
+  include:
+    - stage: Linting
+      script: 'npm run lint && npm run lint_tests'
+    - stage: test
+      script: 'npm run build'
+
+dist: trusty
