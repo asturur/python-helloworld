@@ -21,8 +21,8 @@ install:
 jobs:
   include:
     - stage: Linting
-      script: 'npm run lint && npm run lint_tests'
+      script: helloworld_in_python
     - stage: test
-      script: 'npm run build'
+      script: helloworld_in_python
 
 dist: trusty
